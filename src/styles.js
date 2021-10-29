@@ -11,7 +11,7 @@ export const About = styled.div`
 
 export const Desc = styled.div`
     flex: 1;
-    padding-right: 5rem;
+    padding-left: 5rem;
     z-index: 2;
 
     h2 {

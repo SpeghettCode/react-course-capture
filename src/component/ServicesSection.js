@@ -13,8 +13,12 @@ import { About, Desc, Img } from "../styles";
 const ServicesSection = () => {
     return (
         <Services>
+            <Img>
+                <img src={home2} alt="Camera" />
+            </Img>
             <Desc>
                 <h2>High <span>quality</span> service.</h2>
+                
                 <Cards>
                     <Card>
                         <div className="icon">
@@ -46,9 +50,6 @@ const ServicesSection = () => {
                     </Card>
                 </Cards>
             </Desc>
-            <Img>
-                <img src={home2} alt="Camera" />
-            </Img>
         </Services>
     );  
 }

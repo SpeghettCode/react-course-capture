@@ -8,13 +8,13 @@ const Nav = () => {
             <h1><Link to="/" id="logo">Capture</Link></h1>
             <ul>
                 <li>
-                    <Link to="/">1. About Us</Link>
+                    <Link to="/">About Us</Link>
                 </li>
                 <li>
-                    <Link to="/work">2. Our Work</Link>
+                    <Link to="/work">Our Work</Link>
                 </li>
                 <li>
-                    <Link to="/contact">3. Contact Us</Link>
+                    <Link to="/contact">Contact Us</Link>
                 </li>
             </ul>
         </StyledNav>
@@ -48,8 +48,25 @@ const StyledNav = styled.nav`
     }
 
     li {
-        padding-left: 10rem;
+        margin-left: 10rem;
+        padding: 0.5rem;
         position: relative;
+    }
+
+    li::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background: #23d997;
+        transition: all 0.3s ease;
+    }
+
+    li:hover::after {
+        width: 100%;
     }
 `;
 
