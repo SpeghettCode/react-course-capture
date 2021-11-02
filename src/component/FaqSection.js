@@ -2,49 +2,57 @@ import react from "react";
 // styles
 import styled from 'styled-components';
 import {About} from '../styles';
+
+// animation
 import Toggle from "./Toggle";
+import {AnimateSharedLayout} from 'framer-motion';
+import { useScroll } from "./useScroll";
+import { fade } from '../animation';
 
 const FaqSection = () => {
+    const [element, controls] = useScroll();
+
     return (
-        <Faq>
-            <h2>Any questions? <span>FAQ</span></h2>
-            <Toggle>
-                <div className="question">
-                    <h4>How do i start?</h4>
-                    <div className="answer-div">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, similique?</p>
+        <Faq ref={element} variants={fade} animate={controls} initial='hidden'>
+            <SectionHeader>Any questions? <span>FAQ</span></SectionHeader>
+
+            <AnimateSharedLayout>
+                <Toggle title='How Do I Start?'>
+                    <div className="question">
+                        <div className="answer-div">
+                            <p>Lorem ipsum dolor sit amet.</p>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, similique?</p>
+                        </div>
                     </div>
-                    <div className="faq-line"></div>
-                </div>
-            </Toggle>
+                </Toggle>
 
-            <div className="question">
-                <h4>Daily schedule</h4>
-                <div className="answer-div">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, similique?</p>
-                </div>
-                <div className="faq-line"></div>
-            </div>
+                <Toggle title='Daily schedule'>
+                    <div className="question">
+                        <div className="answer-div">
+                            <p>Lorem ipsum dolor sit amet.</p>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, similique?</p>
+                        </div>
+                    </div>
+                </Toggle>
 
-            <div className="question">
-                <h4>Different payment methods</h4>
-                <div className="answer-div">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, similique?</p>
-                </div>
-                <div className="faq-line"></div>
-            </div>
+                <Toggle title='Different payment methods'>
+                    <div className="question">
+                        <div className="answer-div">
+                            <p>Lorem ipsum dolor sit amet.</p>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, similique?</p>
+                        </div>
+                    </div>
+                </Toggle>
 
-            <div className="question">
-                <h4>What products do you offer?</h4>
-                <div className="answer-div">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, similique?</p>
-                </div>
-                <div className="faq-line"></div>
-            </div>
+                <Toggle title='What products do you offer?'>
+                    <div className="question">
+                        <div className="answer-div">
+                            <p>Lorem ipsum dolor sit amet.</p>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, similique?</p>
+                        </div>
+                    </div>
+                </Toggle>
+            </AnimateSharedLayout>
         </Faq>
     );
 }
@@ -81,6 +89,10 @@ const Faq = styled(About)`
             padding: 1rem 0rem;
         }
     }
+`;
+
+const SectionHeader = styled.h2`
+    margin-bottom: 5rem;
 `;
 
 export default FaqSection;

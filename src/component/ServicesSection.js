@@ -9,10 +9,15 @@ import home2 from '../img/home2.png';
 // styles
 import styled from 'styled-components';
 import { About, Desc, Img } from "../styles";
+// animations
+import { useScroll } from "./useScroll";
+import { fade } from '../animation';
 
 const ServicesSection = () => {
+    const [element, controls] = useScroll();
+    
     return (
-        <Services>
+        <Services variants={fade} animate={controls} initial='hidden' ref={element}>
             <Img>
                 <img src={home2} alt="Camera" />
             </Img>
